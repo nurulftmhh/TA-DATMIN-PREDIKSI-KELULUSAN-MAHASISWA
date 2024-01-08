@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your Machine Learning App</title>
+        <style>
+            .predictions {
+              text-align: center;
+            }
+            .predictions div {
+              display: block; /* Force each prediction to display on a new line */
+              margin-bottom: 10px; /* Add spacing between predictions */
+            }
+          </style>
+    </head>
+    
+    <body>
+        <form action="{{ url_for('predict')}}" method="post" name="form" style="text-align: center;">
+            <label for="jeniskelamin">Jenis Kelamin:</label>
+            <select name="JENIS KELAMIN" required="required">
+              <option value="" disabled selected>Pilih Jenis Kelamin</option>
+              <option value="0">Laki-Laki</option>
+              <option value="1">Perempuan</option>
+            </select>
+            <br><br>
+            <label for="inputStatus">Status Mahasiswa:</label>
+            <select  name="STATUS MAHASISWA" required="required">
+              <option value="" disabled selected>Pilih Status Mahasiswa</option>
+              <option value="0">Bekerja</option>
+              <option value="1">Mahasiswa</option>
+            </select>
+            <br><br>            
+            Umur: <input type="number" name="umur", step="any" placeholder="Isikkan umur" required/>
+            <br><br>
+            <label for="inputNikah">Status Nikah:</label>
+            <select name="STATUS NIKAH" required="required">
+              <option value="" disabled selected>Pilih Status Nikah</option>
+              <option value="1">Sudah</option>
+              <option value="0">Belum</option>
+            </select>
+            <br><br>
+            IPS 1: <input type="number" name="IPS 1" step="any" placeholder="Range 0-4" required/>
+            <br><br>
+            IPS 2: <input type="number" name="IPS 2" step="any" placeholder="Range 0-4" required/>
+            <br><br>
+            IPS 3: <input type="number" name="IPS 3", step="any" placeholder="Range 0-4" required/>
+            <br><br>
+            IPS 4: <input type="number" name="IPS 4", step="any" placeholder="Range 0-4" required/>
+            <br><br>
+            IPS 5: <input type="number" name="IPS 5", step="any" placeholder="Range 0-4" required/>
+            <br><br>
+            IPS 6: <input type="number" name="IPS 6", step="any" placeholder="Range 0-4" required/>
+            <br><br>
+            IPS 7: <input type="number" name="IPS 7", step="any" placeholder="Range 0-4" required/>
+            <br><br>
+            IPS 8: <input type="number" name="IPS 8", step="any" placeholder="Range 0-4" required/>
+            <br><br>
+            <button value="Submit">Run</button>
+            <br><br>
+        </form>
+        <div class="predictions">
+            {{ prediction_manhattan }}
+            <br><br>
+            {{ prediction_euclidean }}
+            <br><br>
+            {{ prediction_minkowski }}
+          </div>
+    </body>
+</html>
